@@ -1,0 +1,86 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Build a Haiku!</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+
+    </style>
+  </head>
+  <body>
+
+    <section class="section">
+      <div class="container">
+        <h1 class="title">
+          Let's Build a Haiku!
+        </h1>
+        <p class="subtitle">
+          It's As Easy as it Sounds <br>
+          Believe in Yourself ^_^
+        </p>
+        <p>~Esther Kim (You've just been haikued!)</p>
+        <hr>
+      </div>
+    </section>
+
+    <div class="container" id="select-user-container" style="display: block">
+      <label for="user-select-container">Find Existing User</label>
+      <select class="form-control" id="user-select-container">
+        <option value="">--Please choose a user--</option>
+        <!-- DROPDOWN of all existing users -->
+      </select>
+
+    </div>
+
+    <div class="container" id="new-user-container" style="display: block">
+      <p><h3> Or </h3></p>
+      <form action="" >
+        <label for="name">Create a user</label>
+        <input class="form-control" type="text" name="name" placeholder="Enter Your Name" required>
+        <br>
+        <button class="btn btn-secondary" type="submit" value="New User">Submit</button>
+      </form>
+    </div>
+
+    <div class="container" id="new-poem-container" style="display: none">
+      <form action="" id="new-poem-form">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Title" aria-label="title" aria-describedby="title">
+        </div>
+
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="5 Syllables" aria-label="5 Syllables" aria-describedby="line1" name="line1">
+          <div class="input-group-append" id="line1-syllableCount">
+            <span class="input-group-text"></span>
+          </div>
+        </div>
+
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="7 Syllables"  aria-describedby="line2" name="line2">
+          <div class="input-group-append" id="line2-syllableCount">
+            <span class="input-group-text" ></span>
+          </div>
+        </div>
+
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="5 Syllables" aria-label="5 Syllables" aria-describedby="line3" name="line3">
+          <div class="input-group-append" id="line3-syllableCount">
+            <span class="input-group-text"></span>
+          </div>
+        </div>
+
+        <input class="btn btn-secondary" type="submit" value="Save">
+      </form>
+    </div>
+
+    <div class="container" id="user-poem-container" style="display: none">
+      <h3>Poems</h3>
+    </div>
+
+
+
+  <script type="text/javascript" src="src/index.js"></script>
+  </body>
+</html>
