@@ -18,12 +18,12 @@ The `index.html` file hold the structure of the app. An `src` folder contains th
 
 ## Using the Application
 
+#### Haiku Builder
+
+You can type any combination of words and a syllable count will appear in the grey box at the end of each input field. If you would like to save the haiku for later, you will have to identify yourself as either an existing or new user.
+
 #### User Login  
 
-When you first open the app, you should see a user drop-down with the option to create a new user. If this is your first time using this app, enter your desired username into the "Create a user" input field and submit.
+In order to save your haiku, you have to identify yourself as an existing user or create an account. If this is your first time using this app, enter your desired username into the "Create a user" input field and submit. If you are a returning user, enter your username.
 
 <!-- Insert a gif of the user login page -->
-
-#### User poems
-
-After identifying yourself as an existing user or creating a new username, you should see the user poems section. You can type any combination of words and a syllable count will appear in the grey box at the end of each input field.

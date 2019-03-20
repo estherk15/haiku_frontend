@@ -15,3 +15,4 @@
 - Do you need a user login page?
 - Can you keep the app simpler with a syllable counter without user info?
 - If a user submits a poem, they must be a user? In order to have CRUD capabilities. Switch the user flow so that the haiku builder is accessible outside of a login, then
+- Refactor functions to so that you're not recalling same function three different times.
