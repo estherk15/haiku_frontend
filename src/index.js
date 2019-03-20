@@ -11,10 +11,10 @@ let currentUserId //This variable allows you to pull user ID from dropdown so yo
 
 //Invocation will toggle the user poem display to be visible, and the landing page to be hidden.
 function displayPoemContainers () {
-  userPoemContainer.style.display = "block"
-  newPoemContainer.style.display = "block"
-  newUserContainer.style.display = "none"
-  selectContainer.style.display = "none"
+  userPoemContainer.style.display = "none"
+  newPoemContainer.style.display = "none"
+  newUserContainer.style.display = "block"
+  selectContainer.style.display = "block"
 }
 
 //dropdown with all existng user from db
@@ -56,6 +56,7 @@ dropdown.addEventListener("change", (event) => {
 })
 
 //create a new user and persist to rails backend, show the new poem form, hide the initial forms
+// This section will have to change because you're no longer require the user ID prior to the use of the haiku builder
 newUserContainer.addEventListener("submit", (event) => {
   event.preventDefault()
   const newUserInput = event.target.name.value
@@ -103,8 +104,8 @@ newPoemContainer.addEventListener("submit", (event) => {
 
     userPoemContainer.innerHTML +=
       `<div class="" data-id=${poemData.id}>
-      <div><strong> ${poemData.title}</strong></div>
-      <div>${poemLinesPTag}</div>
+        <div><strong> ${poemData.title}</strong></div>
+        <div>${poemLinesPTag}</div>
       </div>
       `
   })

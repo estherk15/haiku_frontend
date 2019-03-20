@@ -16,3 +16,7 @@
 - Can you keep the app simpler with a syllable counter without user info?
 - If a user submits a poem, they must be a user? In order to have CRUD capabilities. Switch the user flow so that the haiku builder is accessible outside of a login, then
 - Refactor functions to so that you're not recalling same function three different times.
+
+
+- You changed the display style for the user login and the user poem sections, but you have to change the logic so that the event listener is on the user dropdown and the forms appear whtn you click on the specific user(existing/new)
+- Then you also need to add an event listener to the submit button, if the user is not logged in, they get an alert that says they need to login.
