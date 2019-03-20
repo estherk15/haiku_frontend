@@ -34,12 +34,8 @@ dropdown.addEventListener("change", (event) => {
   fetch(poemEndpoint)
     .then(response => response.json())
     .then(poemsData => {
-      const userPoems = poemsData.filter(poem => poem.user.id == event.target.value)
-      // allContainer.forEach(container => container.style.display = "none")
-      // userPoemContainer.style.display = "block"
-      // newPoemContainer.style.display = "block"
-      displayPoemContainers()
-      const content = userPoems.filter(poem => poem.content)
+      const userPoems = poemsData.filter(poem => poem.user.id == event.target.value) //only the poems that match the user ID.
+      displayPoemContainers() //fn switches toggles between login and user page
 
       userPoems.forEach(poem => {
         userPoemContainer.innerHTML +=
@@ -48,6 +44,13 @@ dropdown.addEventListener("change", (event) => {
             <div>${poem.content}</div>
           </div>
           `
+          // Add the below as cards instead of the above poems.
+          //     <div class="card" style="width: 18rem;">
+              //   <div class="card-body">
+              //     <h5 class="card-title">Card title</h5>
+              //     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              //   </div>
+              // </div>
       })
     })
 })
@@ -117,7 +120,7 @@ newPoemContainer.addEventListener("input", (event) => {
   const sumContainer2 = document.querySelector("#line2-syllableCount")
   const sumContainer3 = document.querySelector("#line3-syllableCount")
 
-  const syllableCount = (word) => { //returns a promise of the syllable count of one word
+  const syllableCount = (word) => { //fn returns a promise of the syllable count of one word
     return fetch(`https://api.datamuse.com/words?max=1&sp=${word}&qe=sp&md=s`)
       .then(response => response.json())
       .then(wordData => wordData[0].numSyllables)
@@ -134,7 +137,6 @@ newPoemContainer.addEventListener("input", (event) => {
   let pr3 = line3.map((word) => {
     return syllableCount(word)
   })
-
 
   Promise.all(pr1)
   .then((arraySyllableCounts) => { //adds up all the syllable counts
