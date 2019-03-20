@@ -1,6 +1,6 @@
 # Haiku Builder: The Front End
 
-This JavaScript Single Page Application was built to help poetry enthusiasts create haikus with greater ease! Through the incorporation of the Datamuse API, poets can enter any string of words and easily find an automated syllable count for each line in their haiku. Haiku Builder follows the convention of a three line poem with the consecutive syllable structure 5, 7, 5.
+This JavaScript Single Page Application was built to help poetry enthusiasts create haikus with greater ease! Through the incorporation of the Datamuse API, poets can enter any string of words and easily find an automated syllable count for each line in their haiku. Haiku Builder follows the convention of a three line haiku with the consecutive syllable structure 5, 7, 5.
 
 #### Ex.
 
