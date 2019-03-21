@@ -50,7 +50,9 @@ loginDropdown.addEventListener("change", (event) => {
 //when you click on a user, their existing poems will display on the page
 dropdown.addEventListener("change", (event) => {
   currentUserId = parseInt(event.target.value)
-
+  const poemFormat = (poemObj) => {
+    return poemObj.content.split("-").join("</br>")
+  }
   fetch(poemEndpoint)
     .then(response => response.json())
     .then(poemsData => {
@@ -58,19 +60,20 @@ dropdown.addEventListener("change", (event) => {
       //fn switches toggles between login and user page
       displayPoemContainers()
       userPoems.forEach(poem => {
+
         userPoemContainer.innerHTML +=
-          `<div class="" data-id=${poem.id}>
-            <div><strong> ${poem.title}</strong></div>
-            <div>${poem.content}</div>
-          </div>
-          `
+          // `<div class="" data-id=${poem.id}>
+          //   <div><strong> ${poem.title}</strong></div>
+          //   <div>${poemFormat(poem)}</div>
+          // </div>
+          // `
           // Add the below as cards instead of the above poems.
-          //     <div class="card" style="width: 18rem;">
-              //   <div class="card-body">
-              //     <h5 class="card-title">Card title</h5>
-              //     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              //   </div>
-              // </div>
+          `    <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">${poem.title}</h5>
+                  <p class="card-text">${poemFormat(poem)}</p>
+                </div>
+              </div>`
       })
     })
 })

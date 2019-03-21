@@ -12,11 +12,14 @@
 - Make the syllable counter reset to empty if the input fields are empty.
 
 **App Decisions**
-- Do you need a user login page?
+<!-- - Do you need a user login page?
 - Can you keep the app simpler with a syllable counter without user info?
-- If a user submits a poem, they must be a user? In order to have CRUD capabilities. Switch the user flow so that the haiku builder is accessible outside of a login, then
+- If a user submits a poem, they must be a user? In order to have CRUD capabilities. Switch the user flow so that the haiku builder is accessible outside of a login, then 21Mar-->
 - Refactor functions to so that you're not recalling same function three different times.
 
 
-- You changed the display style for the user login and the user poem sections, but you have to change the logic so that the event listener is on the user dropdown and the forms appear whtn you click on the specific user(existing/new)
+<!-- - You changed the display style for the user login and the user poem sections, but you have to change the logic so that the event listener is on the user dropdown and the forms appear whtn you click on the specific user(existing/new) 21Mar-->
 - Then you also need to add an event listener to the submit button, if the user is not logged in, they get an alert that says they need to login.
+- The syllable counter turns to 1 when you enter a title
+
+- create custom route so you can access the current user's poems instead of filtering through all poems.

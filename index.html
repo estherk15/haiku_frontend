@@ -5,6 +5,7 @@
     <title>Build a Haiku!</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+     <link rel="stylesheet" href="index.css">
   </head>
   <body>
 
@@ -14,9 +15,8 @@
           <nav class="navbar">
             <h2 class="display-4">Haiku Builder</h2>
             <form class="form-inline">
-              <label for="user-dropdown">You are?</label>
               <select class="form-control btn-sm" id="user-dropdown">
-                <option>Please select</option>
+                <option>Sign In</option>
                 <option>Existing User</option>
                 <option>New User</option>
               </select>
@@ -24,11 +24,6 @@
           </nav>
 
           <div class="container" id="user-login">
-            <!-- <h1 class="display-4">Let's Build a Haiku!</h1>
-            <p class="lead">
-              It's As Easy as it Sounds <br>
-              Believe in Yourself ^_^
-            </p> -->
             <div class="container" id="select-user-container" style="display: none">
               <hr>
               <label for="user-select-container">Find Existing User</label>
@@ -74,24 +69,24 @@
             <h3>Create a New Poem</h3>
             <form action="" id="new-poem-form">
               <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Title" aria-label="title" aria-describedby="title" name="title">
+                <input type="text" class="form-control" placeholder="Title" aria-label="title" name="title">
               </div>
               <div class="input-group mb-3">
                 <input type="text" class="form-control" placeholder="5 Syllables" aria-label="5 Syllables" aria-describedby="line1" name="line1">
                 <div class="input-group-append" id="line1-syllableCount">
-                  <span class="input-group-text"></span>
+                  <span class="input-group-text">0</span>
                 </div>
               </div>
               <div class="input-group mb-3">
                 <input type="text" class="form-control" placeholder="7 Syllables"  aria-describedby="line2" name="line2">
                 <div class="input-group-append" id="line2-syllableCount">
-                  <span class="input-group-text" ></span>
+                  <span class="input-group-text" >0</span>
                 </div>
               </div>
               <div class="input-group mb-3">
                 <input type="text" class="form-control" placeholder="5 Syllables" aria-label="5 Syllables" aria-describedby="line3" name="line3">
                 <div class="input-group-append" id="line3-syllableCount">
-                  <span class="input-group-text"></span>
+                  <span class="input-group-text">0</span>
                 </div>
               </div>
 
@@ -102,7 +97,7 @@
 
         <div class="col-7">
           <div class="row" id="user-poem-container" style="display: block">
-            <div class="col-6">
+            <!-- <div class="col-6"> -->
               <h3>Your Poems</h3>
               <div class="card" style="width: 18rem;">
                 <div class="card-body">
@@ -114,7 +109,7 @@
                   </p>
                 </div>
               </div>
-            </div>
+
           </div>
         </div>
 
