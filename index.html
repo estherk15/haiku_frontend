@@ -12,31 +12,50 @@
     <div class="jumbotron jumbotron-fluid">
       <div class="container">
           <nav class="navbar">
-            <h5 class="navbar-brand">Haiku Builder</h5>
+            <h2 class="display-4">Haiku Builder</h2>
             <form class="form-inline">
               <label for="user-dropdown">You are?</label>
               <select class="form-control btn-sm" id="user-dropdown">
+                <option>Please select</option>
                 <option>Existing User</option>
                 <option>New User</option>
               </select>
             </form>
           </nav>
 
-        <hr>
-        <h1 class="display-4">Let's Build a Haiku!</h1>
-        <p class="lead">
-          It's As Easy as it Sounds <br>
-          Believe in Yourself ^_^
-        </p>
+          <div class="container" id="user-login">
+            <!-- <h1 class="display-4">Let's Build a Haiku!</h1>
+            <p class="lead">
+              It's As Easy as it Sounds <br>
+              Believe in Yourself ^_^
+            </p> -->
+            <div class="container" id="select-user-container" style="display: none">
+              <hr>
+              <label for="user-select-container">Find Existing User</label>
+              <select class="form-control" id="user-select-container">
+                <option value="">--Please choose a user--</option>
+                <!-- DROPDOWN of all existing users -->
+              </select>
+            </div>
+            <div class="container" id="new-user-container" style="display: none">
+              <hr>
+              <form action="" >
+                <label for="name">Create a user</label>
+                <input class="form-control" type="text" name="name" placeholder="Enter Your Name" required>
+                <br>
+                <button class="btn btn-secondary" type="submit" value="New User">Submit</button>
+              </form>
+            </div>
+          </div>
       </div>
     </div>
 
-    <div class="container" id="select-user-container" style="display: none">
+    <!-- <div class="container" id="select-user-container" style="display: none">
       <label for="user-select-container">Find Existing User</label>
       <select class="form-control" id="user-select-container">
         <option value="">--Please choose a user--</option>
         <!-- DROPDOWN of all existing users -->
-      </select>
+      <!-- </select>
     </div>
     <div class="container" id="new-user-container" style="display: none">
       <p><h3> Or </h3></p>
@@ -46,7 +65,7 @@
         <br>
         <button class="btn btn-secondary" type="submit" value="New User">Submit</button>
       </form>
-    </div>
+    </div> -->
 
     <div class="container" id="user-container">
       <div class="row">
@@ -87,8 +106,12 @@
               <h3>Your Poems</h3>
               <div class="card" style="width: 18rem;">
                 <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <h5 class="card-title">Example Haiku</h5>
+                  <p class="card-text">
+                    Let's Build a Haiku! </br>
+                    It's as easy as it sounds </br>
+                    Believe in yourself!
+                  </p>
                 </div>
               </div>
             </div>

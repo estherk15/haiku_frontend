@@ -6,15 +6,26 @@ const userPoemContainer = document.querySelector("#user-poem-container")
 const selectContainer = document.querySelector("#select-user-container")
 const dropdown = document.querySelector("#user-select-container")
 const newPoemForm = document.querySelector("#new-poem-form")
+const loginDropdown = document.querySelector("#user-dropdown")
 // const allContainer = document.querySelectorAll(".container")
 let currentUserId //This variable allows you to pull user ID from dropdown so you can associate with the new poem you submit
 
 //Invocation will toggle the user poem display to be visible, and the landing page to be hidden.
 function displayPoemContainers () {
-  userPoemContainer.style.display = "none"
-  newPoemContainer.style.display = "none"
-  newUserContainer.style.display = "block"
+  userPoemContainer.style.display = "block"
+  newPoemContainer.style.display = "block"
+  newUserContainer.style.display = "none"
+  selectContainer.style.display = "none"
+}
+
+function displayUserLogin() {
+  newUserContainer.style.display = "none"
   selectContainer.style.display = "block"
+}
+
+function displayNewUserForm() {
+  newUserContainer.style.display = "block"
+  selectContainer.style.display = "none"
 }
 
 //dropdown with all existng user from db
@@ -27,6 +38,15 @@ fetch(userEndpoint)
     })
   })
 
+loginDropdown.addEventListener("change", (event) => {
+  // When the user identifies themselves as an existing user/new user, the proper form should appear in the jumbotron below the Haiku
+  if (event.target.value === "Existing User") {
+    displayUserLogin()
+  } else if (event.target.value === "New User") {
+    displayNewUserForm()
+  }
+})
+
 //when you click on a user, their existing poems will display on the page
 dropdown.addEventListener("change", (event) => {
   currentUserId = parseInt(event.target.value)
@@ -35,8 +55,8 @@ dropdown.addEventListener("change", (event) => {
     .then(response => response.json())
     .then(poemsData => {
       const userPoems = poemsData.filter(poem => poem.user.id == event.target.value) //only the poems that match the user ID.
-      displayPoemContainers() //fn switches toggles between login and user page
-
+      //fn switches toggles between login and user page
+      displayPoemContainers()
       userPoems.forEach(poem => {
         userPoemContainer.innerHTML +=
           `<div class="" data-id=${poem.id}>
