@@ -10,6 +10,7 @@
 - line up each card in a fixed scroll on the side?
 - Make the syllable box bigger?
 - Make the syllable counter reset to empty if the input fields are empty.
+- put more space between the new poem form and the existing user poem container
 
 **App Decisions**
 <!-- - Do you need a user login page?
