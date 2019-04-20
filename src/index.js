@@ -1,4 +1,4 @@
-const userEndpoint = "http://localhost:3000/api/v1/users"
+const userEndpoint = `http://localhost:3000/api/v1/users`
 const poemEndpoint = "http://localhost:3000/api/v1/poems"
 const newUserContainer = document.querySelector("#new-user-container")
 const newPoemContainer = document.querySelector("#new-poem-container")
@@ -47,20 +47,20 @@ loginDropdown.addEventListener("change", (event) => {
   }
 })
 
+const poemFormat = (poemObj) => {
+  return poemObj.content.split("-").join("</br>")
+}
+
 //when you click on a user, their existing poems will display on the page
 dropdown.addEventListener("change", (event) => {
   currentUserId = parseInt(event.target.value)
-  const poemFormat = (poemObj) => {
-    return poemObj.content.split("-").join("</br>")
-  }
-  fetch(poemEndpoint)
+
+  fetch(userEndpoint + "/" + `${currentUserId}`)
     .then(response => response.json())
     .then(poemsData => {
-      const userPoems = poemsData.filter(poem => poem.user.id == event.target.value) //only the poems that match the user ID.
-      //fn switches toggles between login and user page
+      // fn switches toggles between login and user page
       displayPoemContainers()
-      userPoems.forEach(poem => {
-
+      poemsData.poems.forEach(poem => {
         userPoemContainer.innerHTML +=
           // `<div class="" data-id=${poem.id}>
           //   <div><strong> ${poem.title}</strong></div>
@@ -131,6 +131,12 @@ newPoemContainer.addEventListener("submit", (event) => {
         <div>${poemLinesPTag}</div>
       </div>
       `
+      `    <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">${poem.title}</h5>
+              <p class="card-text">${poemFormat(poem)}</p>
+            </div>
+          </div>`
   })
   event.target.reset() //resets all the input to original placeholders
 })
