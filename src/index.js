@@ -62,12 +62,7 @@ dropdown.addEventListener("change", (event) => {
       displayPoemContainers()
       poemsData.poems.forEach(poem => {
         userPoemContainer.innerHTML +=
-          // `<div class="" data-id=${poem.id}>
-          //   <div><strong> ${poem.title}</strong></div>
-          //   <div>${poemFormat(poem)}</div>
-          // </div>
-          // `
-          // Add the below as cards instead of the above poems.
+
           `    <div class="card" style="width: 18rem;">
                 <div class="card-body">
                   <h5 class="card-title">${poem.title}</h5>
@@ -79,7 +74,7 @@ dropdown.addEventListener("change", (event) => {
 })
 
 //create a new user and persist to rails backend, show the new poem form, hide the initial forms
-// This section will have to change because you're no longer require the user ID prior to the use of the haiku builder
+// This section will have to change because you no longer require the user ID prior to the use of the haiku builder
 newUserContainer.addEventListener("submit", (event) => {
   event.preventDefault()
   const newUserInput = event.target.name.value
