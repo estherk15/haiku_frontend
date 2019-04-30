@@ -200,10 +200,7 @@ newPoemContainer.addEventListener("submit", (event) => {
 
 //Makes an API pull to get the syllable count for each line
 newPoemLine.forEach(line => {
-  console.log(line.input)
   line.addEventListener("input", (event) => {
-    // console.log(event.target.value)
-
     fetchSyllableCount();
   })
 })
