@@ -64,11 +64,12 @@ function fetchSyllableCount (event) {
   // If there is any input in that line then get the syllable count, else, nothing.
 
   const syllableCount = (word) => { //fn returns a promise of the syllable count of one word
-    if(word.length > 0){
+    if(word.length > 0){ //prevents "" from counting as a syllable
       return fetch(`https://api.datamuse.com/words?max=1&sp=${word}&qe=sp&md=s`)
       .then(response => response.json())
       .then(wordData => wordData[0].numSyllables)
     }
+    return 0
   }
 
 
