@@ -29,13 +29,34 @@ function displayNewUserForm() {
   selectContainer.style.display = "none"
 }
 
-function fetchSyllableCount () {
-  const line1 = newPoemForm.line1.value.split(" ")
-  const line2 = newPoemForm.line2.value.split(" ")
-  const line3 = newPoemForm.line3.value.split(" ")
-  const sumContainer1 = document.querySelector("#line1-syllableCount")
-  const sumContainer2 = document.querySelector("#line2-syllableCount")
-  const sumContainer3 = document.querySelector("#line3-syllableCount")
+function fetchSyllableCount (event) {
+      // Init a timeout variable to be used below
+    var timeout = null;
+
+    // Listen for keystroke events
+    textInput.onkeyup = function (e) {
+
+        // Clear the timeout if it has already been set.
+        // This will prevent the previous task from executing
+        // if it has been less than <MILLISECONDS>
+        clearTimeout(timeout);
+
+        // Make a new timeout set to go off in 800ms
+        timeout = setTimeout(function () {
+            console.log('Input Value:', textInput.value);
+        }, 500);
+    };
+
+  const line = event.target.value.split(" ")
+
+  //after a second after you've finished typing into the field,
+
+  // const line1 = newPoemForm.line1.value.split(" ")
+  // const line2 = newPoemForm.line2.value.split(" ")
+  // const line3 = newPoemForm.line3.value.split(" ")
+  // const sumContainer1 = document.querySelector("#line1-syllableCount")
+  // const sumContainer2 = document.querySelector("#line2-syllableCount")
+  // const sumContainer3 = document.querySelector("#line3-syllableCount")
 
   //*******************************************************************************************
 
@@ -43,52 +64,56 @@ function fetchSyllableCount () {
   // If there is any input in that line then get the syllable count, else, nothing.
 
   const syllableCount = (word) => { //fn returns a promise of the syllable count of one word
-    return fetch(`https://api.datamuse.com/words?max=1&sp=${word}&qe=sp&md=s`)
+    if(word.length > 0){
+      return fetch(`https://api.datamuse.com/words?max=1&sp=${word}&qe=sp&md=s`)
       .then(response => response.json())
       .then(wordData => wordData[0].numSyllables)
+    }
   }
 
-  let pr1 = line1.map((word) => { //returns array of syllable count fetches
-    return syllableCount(word)
-  })
 
-  let pr2 = line2.map((word) => {
-    return syllableCount(word)
-  })
+  //
+  // let pr1 = line1.map((word) => { //returns array of syllable count fetches
+  //   return syllableCount(word)
+  // })
+  //
+  // let pr2 = line2.map((word) => {
+  //   return syllableCount(word)
+  // })
+  //
+  // let pr3 = line3.map((word) => {
+  //   return syllableCount(word)
+  // })
 
-  let pr3 = line3.map((word) => {
-    return syllableCount(word)
-  })
-
-  Promise.all(pr1)
-  .then((arraySyllableCounts) => { //adds up all the syllable counts
-    return arraySyllableCounts.reduce((acc, el) => {
-      return acc + el
-    })
-  })
-  .then(sumValue => { //takes the sum from the former promise and places it in the innerHTML
-    sumContainer1.innerHTML = `<span class="input-group-text">${sumValue}</span>`
-  })
-
-  Promise.all(pr2)
-  .then((arraySyllableCounts) => {
-    return arraySyllableCounts.reduce((acc, el) => {
-      return acc + el
-    })
-  })
-  .then(sumValue => {
-    sumContainer2.innerHTML = `<span class="input-group-text">${sumValue}</span>`
-  })
-
-  Promise.all(pr3)
-  .then((arraySyllableCounts) => {
-    return arraySyllableCounts.reduce((acc, el) => {
-      return acc + el
-    })
-  })
-  .then(sumValue => {
-    sumContainer3.innerHTML = `<span class="input-group-text">${sumValue}</span>`
-  })
+  // Promise.all(pr1)
+  // .then((arraySyllableCounts) => { //adds up all the syllable counts
+  //   return arraySyllableCounts.reduce((acc, el) => {
+  //     return acc + el
+  //   })
+  // })
+  // .then(sumValue => { //takes the sum from the former promise and places it in the innerHTML
+  //   sumContainer1.innerHTML = `<span class="input-group-text">${sumValue}</span>`
+  // })
+  //
+  // Promise.all(pr2)
+  // .then((arraySyllableCounts) => {
+  //   return arraySyllableCounts.reduce((acc, el) => {
+  //     return acc + el
+  //   })
+  // })
+  // .then(sumValue => {
+  //   sumContainer2.innerHTML = `<span class="input-group-text">${sumValue}</span>`
+  // })
+  //
+  // Promise.all(pr3)
+  // .then((arraySyllableCounts) => {
+  //   return arraySyllableCounts.reduce((acc, el) => {
+  //     return acc + el
+  //   })
+  // })
+  // .then(sumValue => {
+  //   sumContainer3.innerHTML = `<span class="input-group-text">${sumValue}</span>`
+  // })
 }
 
 //Formats poems into traditional three lines
@@ -203,7 +228,7 @@ newPoemContainer.addEventListener("submit", (event) => {
 //Makes an API pull to get the syllable count for each line
 newPoemLine.forEach(line => {
   line.addEventListener("input", (event) => {
-    fetchSyllableCount();
+    fetchSyllableCount(event); //for each line of the
   })
 })
 
