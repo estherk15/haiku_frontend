@@ -226,10 +226,17 @@ newPoemContainer.addEventListener("submit", (event) => {
   event.target.reset() //resets all the input to original placeholders
 })
 
+
+
 //Makes an API pull to get the syllable count for each line
-newPoemLine.forEach(line => {
-  line.addEventListener("input", (event) => {
-    fetchSyllableCount(event); //for each line of the
+newPoemLine.forEach(line => { //newPoemLine is node array of all input lines.
+  let timeout = null
+
+  line.addEventListener("keyup", (event) => { //once I input a value onto the input field
+    clearTimeout(timeout)
+    timeout = setTimeout(() => {
+      fetchSyllableCount()
+    }, 500)
   })
 })
 
