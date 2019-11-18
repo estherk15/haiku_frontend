@@ -37,8 +37,6 @@ function fetchSyllableCount () {
   const sumContainer2 = document.querySelector("#line2-syllableCount")
   const sumContainer3 = document.querySelector("#line3-syllableCount")
 
-  //*******************************************************************************************
-
   // Event listener should listen for an input in each line, not the overall div
   // If there is any input in that line then get the syllable count, else, nothing.
 
