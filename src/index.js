@@ -37,18 +37,13 @@ function fetchSyllableCount () {
   const sumContainer2 = document.querySelector("#line2-syllableCount")
   const sumContainer3 = document.querySelector("#line3-syllableCount")
 
-  //*******************************************************************************************
-
   // Event listener should listen for an input in each line, not the overall div
   // If there is any input in that line then get the syllable count, else, nothing.
 
   const syllableCount = (word) => { //fn returns a promise of the syllable count of one word
-    if(word.length > 0){ //prevents "" from counting as a syllable
-      return fetch(`https://api.datamuse.com/words?max=1&sp=${word}&qe=sp&md=s`)
+    return fetch(`https://api.datamuse.com/words?max=1&sp=${word}&qe=sp&md=s`)
       .then(response => response.json())
       .then(wordData => wordData[0].numSyllables)
-    }
-    return 0
   }
 
   let pr1 = line1.map((word) => { //returns array of syllable count fetches
@@ -203,17 +198,10 @@ newPoemContainer.addEventListener("submit", (event) => {
   event.target.reset() //resets all the input to original placeholders
 })
 
-
-
 //Makes an API pull to get the syllable count for each line
-newPoemLine.forEach(line => { //newPoemLine is node array of all input lines.
-  let timeout = null
-
-  line.addEventListener("keyup", (event) => { //once I input a value onto the input field
-    clearTimeout(timeout)
-    timeout = setTimeout(() => {
-      fetchSyllableCount()
-    }, 500)
+newPoemLine.forEach(line => {
+  line.addEventListener("input", (event) => {
+    fetchSyllableCount();
   })
 })
 
