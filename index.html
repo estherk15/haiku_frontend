@@ -6,28 +6,37 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
      <link rel="stylesheet" href="index.css">
+     <script type="text/javascript" src="https://www.datadoghq-browser-agent.com/datadog-logs.js"></script>
+    <script>
+      window.DD_LOGS &&
+        DD_LOGS.init({
+          clientToken: 'pubfc7c622e77e8502ffbf791d240b90d16',
+          site: '<DATADOG_SITE>',
+          forwardErrorsToLogs: true,
+          sampleRate: 100,
+        })
+    </script>
   </head>
   <body>
     <div class="jumbotron jumbotron-fluid">
       <div class="container">
           <nav class="navbar">
             <h2 class="display-4">Haiku Builder</h2>
-            <form class="form-inline">
+            <!-- <form class="form-inline">
               <select class="form-control btn-sm" id="user-dropdown">
                 <option>Sign In</option>
                 <option>Existing User</option>
                 <option>New User</option>
               </select>
-            </form>
+            </form> -->
           </nav>
 
-          <div class="container" id="user-login">
+          <!-- <div class="container" id="user-login">
             <div class="container" id="select-user-container" style="display: none">
               <hr>
               <label for="user-select-container">Find Existing User</label>
               <select class="form-control" id="user-select-container">
                 <option value="">--Please choose a user--</option>
-                <!-- DROPDOWN of all existing users -->
               </select>
             </div>
             <div class="container" id="new-user-container" style="display: none">
@@ -39,7 +48,7 @@
                 <button class="btn btn-secondary" type="submit" value="New User">Submit</button>
               </form>
             </div>
-          </div>
+          </div> -->
       </div>
     </div>
 
