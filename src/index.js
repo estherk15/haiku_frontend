@@ -100,23 +100,23 @@ const poemFormat = (poemObj) => {
 }
 
 //dropdown with all existng user from db
-fetch(userEndpoint)
-  .then(response => response.json())
-  .then(userData => {
-    userData.forEach(user => {
-      dropdown.innerHTML +=
-        `<option value="${user.id}">${user.name}</option>`
-    })
-  })
+// fetch(userEndpoint)
+//   .then(response => response.json())
+//   .then(userData => {
+//     userData.forEach(user => {
+//       dropdown.innerHTML +=
+//         `<option value="${user.id}">${user.name}</option>`
+//     })
+//   })
 
 // When the user identifies themselves as an existing user/new user, the proper form should appear in the jumbotron below the Haiku
-loginDropdown.addEventListener("change", (event) => {
-  if (event.target.value === "Existing User") {
-    displayUserLogin()
-  } else if (event.target.value === "New User") {
-    displayNewUserForm()
-  }
-})
+// loginDropdown.addEventListener("change", (event) => {
+//   if (event.target.value === "Existing User") {
+//     displayUserLogin()
+//   } else if (event.target.value === "New User") {
+//     displayNewUserForm()
+//   }
+// })
 
 //when you click on a user, their existing poems will display on the page
 dropdown.addEventListener("change", (event) => {
@@ -142,23 +142,23 @@ dropdown.addEventListener("change", (event) => {
 
 //create a new user and persist to rails backend, show the new poem form, hide the initial forms
 // This section will have to change because you no longer require the user ID prior to the use of the haiku builder
-newUserContainer.addEventListener("submit", (event) => {
-  event.preventDefault()
-  const newUserInput = event.target.name.value
-
-  displayPoemContainers()
-
-  fetch(userEndpoint, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "Accept": "application/json"
-    },
-    body: JSON.stringify({ name: newUserInput })
-  })
-  .then(response => response.json())
-  .then(newUserData => currentUserId = newUserData.id)
-})
+// newUserContainer.addEventListener("submit", (event) => {
+//   event.preventDefault()
+//   const newUserInput = event.target.name.value
+//
+//   displayPoemContainers()
+//
+//   fetch(userEndpoint, {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//       "Accept": "application/json"
+//     },
+//     body: JSON.stringify({ name: newUserInput })
+//   })
+//   .then(response => response.json())
+//   .then(newUserData => currentUserId = newUserData.id)
+// })
 
 //save a new poem to user
 newPoemContainer.addEventListener("submit", (event) => {
